@@ -3,27 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Abir Hasan | Website Designer</title>
+<title>Abir Hasan | Web & App Developer</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 
-<style>/* ---------- SECTIONS ---------- */
-.section{position:relative;max-width:900px;margin:0 auto;padding:80px 24px}
-.section-label{font-family:'Press Start 2P',monospace;font-size:.6rem;color:var(--accent);letter-spacing:1px;margin-bottom:12px}
-.section-title{font-size:clamp(1.6rem,6vw,2.4rem);font-weight:700;margin-bottom:32px}
-.cards{display:grid;gap:16px}
-@media(min-width:700px){.cards{grid-template-columns:repeat(3,1fr)}}
-.card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:24px;transition:transform .3s,border-color .3s,box-shadow .3s}
-.card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 0 28px var(--glow)}
-.card .num{font-family:'Press Start 2P',monospace;font-size:.7rem;color:var(--accent);margin-bottom:16px}
-.card h3{font-size:1.15rem;margin-bottom:8px}
-.card p{color:var(--muted);line-height:1.6;font-size:.95rem}
-
-/* scroll e fade-in */
-.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
-.js .reveal.show{opacity:1;transform:none}
+<style>
 :root{
   --bg:#0A0A0A;
   --text:#F2F2F2;
@@ -66,6 +52,25 @@ body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',Arial,sa
 .content>*:nth-child(4){animation-delay:.45s}
 .content>*:nth-child(5){animation-delay:.6s}
 @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+/* ---------- SECTIONS ---------- */
+.section{position:relative;max-width:900px;margin:0 auto;padding:80px 24px}
+.section-label{font-family:'Press Start 2P',monospace;font-size:.6rem;color:var(--accent);letter-spacing:1px;margin-bottom:12px}
+.section-title{font-size:clamp(1.6rem,6vw,2.4rem);font-weight:700;margin-bottom:32px}
+.cards{display:grid;gap:16px}
+@media(min-width:700px){.cards{grid-template-columns:repeat(2,1fr)}}
+.card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:24px;transition:transform .3s,border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 0 28px var(--glow)}
+.card .num{font-family:'Press Start 2P',monospace;font-size:.7rem;color:var(--accent);margin-bottom:16px}
+.card h3{font-size:1.15rem;margin-bottom:8px}
+.card p{color:var(--muted);line-height:1.6;font-size:.95rem}
+.project-box{border:1px dashed rgba(255,255,255,.2);border-radius:14px;padding:40px 24px;text-align:center;color:var(--muted);line-height:1.6}
+.project-box strong{display:block;color:var(--text);font-family:'Press Start 2P',monospace;font-size:.7rem;margin-bottom:14px;letter-spacing:1px}
+
+/* scroll e fade-in */
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.js .reveal.show{opacity:1;transform:none}
+
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -80,24 +85,15 @@ body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',Arial,sa
   </div>
 
   <div class="content">
-    <!-- CHANGE HERE: naam (2nd line lal) -->
     <h1 class="name">Abir<span>Hasan</span></h1>
-
-    <!-- CHANGE HERE: tomar title -->
     <p class="role">Web & App Developer</p>
-
-    <!-- CHANGE HERE: headline -->
     <h2 class="headline">I turn your ideas into <span>real websites & apps.</span></h2>
-
-    <!-- CHANGE HERE: description -->
     <p class="sub">Websites, web apps and software ideas, built modern, mobile-friendly and premium dark-style for your business.</p>
-
-    <!-- CHANGE HERE: button -->
     <a class="btn" href="#contact">Contact me →</a>
   </div>
 </section>
 
-</body><section class="section" id="services">
+<section class="section" id="services">
   <div class="reveal">
     <p class="section-label">// Services</p>
     <h2 class="section-title">What I can build for you</h2>
@@ -114,11 +110,17 @@ body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',Arial,sa
       <h3>Web Apps</h3>
       <p>Simple, useful web apps like trackers and tools that run right in the browser.</p>
     </div>
-    <div class="card">
-      <p class="num">03</p>
-      <h3>Shop Demo</h3>
-      <p>Online shop front-end demos with product list, cart interface and search.</p>
-    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="reveal">
+    <p class="section-label">// Projects</p>
+    <h2 class="section-title">My work</h2>
+  </div>
+  <div class="project-box reveal">
+    <strong>COMING SOON</strong>
+    I am building my first projects right now. They will appear here as soon as they are ready.
   </div>
 </section>
 
@@ -132,4 +134,6 @@ const io=new IntersectionObserver((entries)=>{
 },{threshold:.15});
 items.forEach(el=>io.observe(el));
 </script>
+
+</body>
 </html>
