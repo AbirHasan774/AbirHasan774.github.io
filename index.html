@@ -72,7 +72,12 @@ body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',Arial,sa
 .js .reveal.show{opacity:1;transform:none}
 
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-</style>
+</style>/* ---------- CONTACT & FOOTER ---------- */
+.contact-box{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);border-radius:14px;padding:32px 24px}
+.contact-box p{color:var(--muted);line-height:1.6;margin-bottom:24px}
+.contact-box .email-text{margin:20px 0 0;font-size:.9rem}
+.contact-links{display:flex;flex-wrap:wrap;gap:12px}
+.footer{text-align:center;color:var(--muted);font-size:.8rem;padding:32px 24px 48px;border-top:1px solid rgba(255,255,255,.06)}
 </head>
 <body>
 
@@ -133,7 +138,23 @@ const io=new IntersectionObserver((entries)=>{
   })
 },{threshold:.15});
 items.forEach(el=>io.observe(el));
-</script>
+</script><section class="section" id="contact">
+  <div class="reveal">
+    <p class="section-label">// Contact</p>
+    <h2 class="section-title">Let's work together</h2>
+  </div>
+
+  <div class="contact-box reveal">
+    <p>Have an idea for a website or web app? Send me an email and tell me about it.</p>
+    <div class="contact-links">
+      <a class="btn" href="mailto:ayahuasca774@gmail.com">Email me →</a>
+      <!-- PORE: Facebook / WhatsApp button ekhane jog hobe -->
+    </div>
+    <p class="email-text">ayahuasca774@gmail.com</p>
+  </div>
+</section>
+
+<footer class="footer">© 2026 Abir Hasan</footer>
 
 </body>
 </html>
