@@ -9,7 +9,21 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 
-<style>
+<style>/* ---------- SECTIONS ---------- */
+.section{position:relative;max-width:900px;margin:0 auto;padding:80px 24px}
+.section-label{font-family:'Press Start 2P',monospace;font-size:.6rem;color:var(--accent);letter-spacing:1px;margin-bottom:12px}
+.section-title{font-size:clamp(1.6rem,6vw,2.4rem);font-weight:700;margin-bottom:32px}
+.cards{display:grid;gap:16px}
+@media(min-width:700px){.cards{grid-template-columns:repeat(3,1fr)}}
+.card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:24px;transition:transform .3s,border-color .3s,box-shadow .3s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 0 28px var(--glow)}
+.card .num{font-family:'Press Start 2P',monospace;font-size:.7rem;color:var(--accent);margin-bottom:16px}
+.card h3{font-size:1.15rem;margin-bottom:8px}
+.card p{color:var(--muted);line-height:1.6;font-size:.95rem}
+
+/* scroll e fade-in */
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.js .reveal.show{opacity:1;transform:none}
 :root{
   --bg:#0A0A0A;
   --text:#F2F2F2;
@@ -83,5 +97,39 @@ body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',Arial,sa
   </div>
 </section>
 
-</body>
+</body><section class="section" id="services">
+  <div class="reveal">
+    <p class="section-label">// Services</p>
+    <h2 class="section-title">What I can build for you</h2>
+  </div>
+
+  <div class="cards reveal">
+    <div class="card">
+      <p class="num">01</p>
+      <h3>Websites</h3>
+      <p>Portfolio, business and landing page websites that look great on phone and desktop.</p>
+    </div>
+    <div class="card">
+      <p class="num">02</p>
+      <h3>Web Apps</h3>
+      <p>Simple, useful web apps like trackers and tools that run right in the browser.</p>
+    </div>
+    <div class="card">
+      <p class="num">03</p>
+      <h3>Shop Demo</h3>
+      <p>Online shop front-end demos with product list, cart interface and search.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+document.documentElement.classList.add('js');
+const items=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}
+  })
+},{threshold:.15});
+items.forEach(el=>io.observe(el));
+</script>
 </html>
