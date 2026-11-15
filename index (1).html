@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abir Hasan | Web & App Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0A0A;--text:#F2F2F2;--muted:#9A9A9A;--red:#E10600;--line:rgba(255,255,255,.1);--glow:rgba(225,6,0,.35)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',Arial,sans-serif;overflow-x:hidden}
+.px{font-family:'Press Start 2P',monospace}
+a:focus-visible,button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+/* LOADER */
+#loader{position:fixed;inset:0;z-index:100;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:transform .8s cubic-bezier(.77,0,.18,1);animation:failsafe .1s 3.5s forwards}
+#loader.out{transform:translateY(-100%)}
+#num{font-size:clamp(2rem,10vw,3.5rem);color:var(--red)}
+.bar{width:min(60vw,260px);height:2px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;width:100%;background:var(--red);transform-origin:left;animation:fill 1.5s ease-out forwards}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes failsafe{to{opacity:0;visibility:hidden}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:16px 20px;background:rgba(10,10,10,.85)}
+nav .logo{font-size:.8rem;color:var(--text);text-decoration:none}
+nav .logo b{color:var(--red);font-weight:400}
+nav div a{color:var(--muted);text-decoration:none;font-size:.8rem;margin-left:16px;transition:color .25s}
+nav div a:hover{color:var(--text)}
+#prog{position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--red);transform-origin:left;transform:scaleX(0)}
+.spot{position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(420px circle at var(--x,50%) var(--y,30%),rgba(225,6,0,.13),transparent 60%)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;overflow:hidden;padding:clamp(90px,16vh,140px) 24px 60px;display:flex;align-items:center}
+.bgart{position:absolute;inset:0;pointer-events:none}
+.g1,.g2{position:absolute;border-radius:50%}
+.g1{width:560px;height:560px;top:-12%;right:-35%;background:radial-gradient(circle,rgba(225,6,0,.55),transparent 68%);animation:f1 14s ease-in-out infinite alternate}
+.g2{width:480px;height:480px;bottom:-12%;left:-38%;background:radial-gradient(circle,rgba(122,3,0,.6),transparent 68%);animation:f2 18s ease-in-out infinite alternate}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:36px 36px;-webkit-mask-image:radial-gradient(ellipse at center,#000 25%,transparent 80%);mask-image:radial-gradient(ellipse at center,#000 25%,transparent 80%)}
+@keyframes f1{to{transform:translate(-10%,12%) scale(1.15)}}
+@keyframes f2{to{transform:translate(12%,-10%) scale(1.2)}}
+.stage{position:absolute;right:6%;top:24%;width:150px;height:150px;perspective:800px;opacity:.9}
+.cube{position:relative;width:100%;height:100%;transform-style:preserve-3d;animation:rot 20s linear infinite}
+.cube i{position:absolute;inset:0;border:1px solid rgba(225,6,0,.75);background:rgba(225,6,0,.05)}
+.cube i:nth-child(1){transform:translateZ(75px)}
+.cube i:nth-child(2){transform:rotateY(180deg) translateZ(75px)}
+.cube i:nth-child(3){transform:rotateY(90deg) translateZ(75px)}
+.cube i:nth-child(4){transform:rotateY(-90deg) translateZ(75px)}
+.cube i:nth-child(5){transform:rotateX(90deg) translateZ(75px)}
+.cube i:nth-child(6){transform:rotateX(-90deg) translateZ(75px)}
+@keyframes rot{from{transform:rotateX(-25deg) rotateY(0)}to{transform:rotateX(-25deg) rotateY(360deg)}}
+.wrap{position:relative;z-index:2;max-width:900px;margin:0 auto;width:100%}
+.name{font-size:clamp(2rem,13vw,5rem);line-height:1.25;text-transform:uppercase;margin-bottom:24px;text-shadow:0 0 24px var(--glow)}
+.name span{display:block}
+.name span+span{color:var(--red)}
+.role{font-size:.6rem;letter-spacing:1px;color:var(--muted);margin-bottom:38px}
+.headline{font-size:clamp(1.5rem,6vw,2.4rem);font-weight:700;line-height:1.2;margin-bottom:16px}
+.headline em{font-style:normal;color:var(--red)}
+.sub{color:var(--muted);font-size:clamp(1rem,4vw,1.2rem);line-height:1.6;max-width:540px;margin-bottom:34px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;padding:15px 30px;border-radius:8px;font-weight:700;box-shadow:0 0 24px var(--glow);transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 36px var(--red)}
+.btn.ghost{background:none;border:1px solid var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--text);box-shadow:none}
+.js .hero .in{opacity:0}
+.ready .hero .in{animation:up .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d,0s)}
+@keyframes up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* MARQUEE */
+.marquee{overflow:hidden;border-block:1px solid var(--line);padding:20px 0;white-space:nowrap;position:relative;z-index:2;background:var(--bg)}
+.marquee div{display:inline-block;animation:slide 26s linear infinite;font-size:.65rem;color:var(--muted)}
+.marquee b{color:var(--red);font-weight:400;margin:0 18px}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.section{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:90px 24px}
+.label{font-size:.6rem;color:var(--red);letter-spacing:1px;margin-bottom:14px}
+.title{font-size:clamp(1.7rem,6vw,2.5rem);font-weight:700;margin-bottom:34px}
+.cards{display:grid;gap:16px}
+@media(min-width:700px){.cards{grid-template-columns:repeat(2,1fr)}}
+.card{position:relative;overflow:hidden;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:28px;transition:transform .3s,border-color .3s}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(240px circle at var(--cx,50%) var(--cy,0%),rgba(225,6,0,.22),transparent 65%);opacity:0;transition:opacity .3s}
+.card:hover{transform:translateY(-5px);border-color:var(--red)}
+.card:hover::before{opacity:1}
+.card>*{position:relative}
+.card .num{font-size:.7rem;color:var(--red);margin-bottom:18px}
+.card h3{font-size:1.2rem;margin-bottom:8px}
+.card p{color:var(--muted);line-height:1.6;font-size:.95rem}
+.soon{border:1px dashed rgba(255,255,255,.2);border-radius:14px;padding:44px 24px;text-align:center;color:var(--muted);line-height:1.6}
+.soon strong{display:block;color:var(--text);font-family:'Press Start 2P',monospace;font-size:.7rem;margin-bottom:14px;letter-spacing:1px;font-weight:400}
+.contact{border:1px solid var(--line);background:rgba(255,255,255,.03);border-radius:14px;padding:32px 24px}
+.contact p{color:var(--muted);line-height:1.6;margin-bottom:24px}
+.contact .mail{margin:20px 0 0;font-size:.9rem}
+footer{position:relative;z-index:2;text-align:center;color:var(--muted);font-size:.8rem;padding:32px 24px 48px;border-top:1px solid var(--line)}
+
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease;transition-delay:var(--d,0s)}
+.js .reveal.show{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}.js .hero .in,.js .reveal{opacity:1!important;transform:none!important}#loader{display:none}}
+</style>
+</head>
+<body>
+
+<div id="loader"><div id="num" class="px">000</div><div class="bar"><i></i></div></div>
+<div class="spot"></div>
+
+<nav>
+  <a class="logo px" href="#top">A<b>H</b></a>
+  <div><a href="#services">Services</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+  <span id="prog"></span>
+</nav>
+
+<section class="hero" id="top">
+  <div class="bgart"><div class="g1"></div><div class="g2"></div><div class="grid"></div><div class="stage"><div class="cube"><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div>
+  <div class="wrap">
+    <!-- CHANGE HERE: naam -->
+    <h1 class="name px in"><span data-t="ABIR">ABIR</span><span data-t="HASAN">HASAN</span></h1>
+    <p class="role px in" style="--d:.2s">Web &amp; App Developer</p>
+    <h2 class="headline in" style="--d:.35s">I turn your ideas into <em>real websites &amp; apps.</em></h2>
+    <p class="sub in" style="--d:.5s">Websites, web apps and software ideas, built modern, mobile-friendly and premium dark-style for your business.</p>
+    <div class="btns in" style="--d:.65s"><a class="btn" href="#contact">Contact me →</a><a class="btn ghost" href="#services">See services</a></div>
+  </div>
+</section>
+
+<div class="marquee"><div class="px">WEBSITES<b>/</b>WEB APPS<b>/</b>MOBILE FIRST<b>/</b>CLEAN DESIGN<b>/</b>WEBSITES<b>/</b>WEB APPS<b>/</b>MOBILE FIRST<b>/</b>CLEAN DESIGN<b>/</b></div></div>
+
+<section class="section" id="services">
+  <div class="reveal"><p class="label px">// Services</p><h2 class="title">What I can build for you</h2></div>
+  <div class="cards">
+    <div class="card reveal"><p class="num px">01</p><h3>Websites</h3><p>Portfolio, business and landing page websites that look great on phone and desktop.</p></div>
+    <div class="card reveal" style="--d:.15s"><p class="num px">02</p><h3>Web Apps</h3><p>Simple, useful web apps like trackers and tools that run right in the browser.</p></div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="reveal"><p class="label px">// Projects</p><h2 class="title">My work</h2></div>
+  <div class="soon reveal"><strong>COMING SOON</strong>I am building my first projects right now. They will appear here as soon as they are ready.</div>
+</section>
+
+<section class="section" id="contact">
+  <div class="reveal"><p class="label px">// Contact</p><h2 class="title">Let's work together</h2></div>
+  <div class="contact reveal">
+    <p>Have an idea for a website or web app? Send me an email and tell me about it.</p>
+    <a class="btn" href="mailto:ayahuasca774@gmail.com">Email me →</a>
+    <p class="mail">ayahuasca774@gmail.com</p>
+  </div>
+</section>
+
+<footer>© 2026 Abir Hasan</footer>
+
+<script>
+document.documentElement.classList.add('js');
+const $$=s=>[...document.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* loader counter, then curtain, then name scramble */
+function scramble(el){
+  const fin=el.dataset.t,ch='ABCDEFGHIJKLMNOPQRSTUVWXYZ#%&*';let f=0;const total=18;
+  const id=setInterval(()=>{f++;el.textContent=[...fin].map((c,i)=>i<f*fin.length/total?c:ch[Math.floor(Math.random()*ch.length)]).join('');if(f>=total){el.textContent=fin;clearInterval(id)}},45);
+}
+function done(){
+  document.getElementById('loader').classList.add('out');
+  setTimeout(()=>{document.body.classList.add('ready');if(!reduce)$$('[data-t]').forEach((e,i)=>setTimeout(()=>scramble(e),i*250))},450);
+}
+if(reduce){done()}else{
+  const num=document.getElementById('num'),t0=performance.now();
+  (function count(now){const p=Math.min(1,(now-t0)/1500);num.textContent=String(Math.round(p*100)).padStart(3,'0');p<1?requestAnimationFrame(count):done()})(t0);
+}
+
+/* pointer glow + card glow */
+addEventListener('pointermove',e=>{
+  const r=document.documentElement.style;r.setProperty('--x',e.clientX+'px');r.setProperty('--y',e.clientY+'px');
+  const c=e.target.closest&&e.target.closest('.card');
+  if(c){const b=c.getBoundingClientRect();c.style.setProperty('--cx',(e.clientX-b.left)+'px');c.style.setProperty('--cy',(e.clientY-b.top)+'px')}
+},{passive:true});
+
+/* scroll progress + reveal */
+const prog=document.getElementById('prog');
+addEventListener('scroll',()=>{prog.style.transform='scaleX('+(scrollY/(document.body.scrollHeight-innerHeight||1))+')'},{passive:true});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.15});
+$$('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
